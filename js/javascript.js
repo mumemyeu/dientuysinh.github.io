@@ -3,14 +3,14 @@ var reconnectTimeout = 2000;
 var host = "localhost";//change this
 var port = 9001;
 
-var valueNhipTim = null;
+var valueNhipTim = "";
 var benhnhan_name;
 var benhnhan_age;
 var benhnhan_address;
 var benhnhan_gioitinh;
 
-var ageIndex = null;
-var ageValue = null;
+var ageIndex = "";
+var ageValue = "";
 
 
 
@@ -69,6 +69,7 @@ function luuthongtin() {
 
     var gioitinh = document.getElementById("gioitinh-input").value;
     document.getElementById("gioitinh-output").innerHTML = gioitinh;
+
     var address = document.getElementById("address-input").value;
     document.getElementById("address-output").innerHTML = address;
 
@@ -101,16 +102,21 @@ function xemketqua() {
     donhiptim.classList.add('active');
     const ketqua = document.querySelector('.ketqua');
     ketqua.classList.add('active');
+
     document.getElementById("name-output1").innerHTML = "Họ tên: " + benhnhan_name;
     document.getElementById("age-output1").innerHTML = "Tuổi: " + benhnhan_age;
     document.getElementById("gioitinh-output1").innerHTML = "Giới tính: " + benhnhan_gioitinh;
     document.getElementById("address-output1").innerHTML = "Địa chỉ: " + benhnhan_address;
+
     document.getElementById("sensor_value-output1").innerHTML = "Nhịp tim: " + valueNhipTim;
 
     var noidung1 = "Nhịp tim của bạn bình thường!";
     var noidung2 = "Nhịp tim của bạn KHÔNG bình thường. Hãy kiểm tra lại! "
 
-    if (ageIndex == "1") {
+    if(valueNhipTim == ""){
+        document.getElementById("loikhuyen").innerHTML = "Không nhận được giá trị nhịp tim. Vui lòng thử lại!";
+    }
+    else if (ageIndex == "1") {
         if (valueNhipTim >= 120 && valueNhipTim <= 160 ){
             document.getElementById("loikhuyen").innerHTML = noidung1;
         }else{
@@ -152,7 +158,7 @@ function xemketqua() {
         }else{
             document.getElementById("loikhuyen").innerHTML = noidung2;
         }
-    } 
+    }
 
 }
 
