@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web đo nhịp tim</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script type="text/javascript" language="javascript"></script>
+    <script src="./js/javascript.js"></script>
+</head>
+
+<body>
+    <script>MQTTconnect();</script>
+    <header>
+        <div class="logo-icon">
+            <img src="" alt="">
+        </div>
+        <nav class="navbar">
+            <p>Điện tử y sinh: Trang chủ đo nhịp tim</p>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <div class="form-thongtin thongtin">
+            <h2>Nhập thông tin</h2>
+            <form action="#">
+                <div class="input-box">
+                    <input type="text" id="name-input" required>
+                    <label for="">Họ và tên</label>
+                </div>
+                <div class="input-box age">
+                    <select name="" id="age-input" onchange="laytuoi()">
+                        <option value="1">Trẻ sơ sinh</option>
+                        <option value="2">Trẻ từ 1 đến 12 tháng tuổi</option>
+                        <option value="3">Trẻ từ 1 đến 2 tuổi</option>
+                        <option value="4">Trẻ từ 2 đến 6 tuổi</option>
+                        <option value="5">Trẻ từ 7 đến 12 tuổi</option>
+                        <option value="6">Người từ 18 tuổi trở lên</option>
+                        <option value="7">Vận động viên</option>
+                    </select>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="gioitinh-input" required>
+                    <label for="">Giới tính</label>
+                </div>
+                <div class="input-box">
+                    <input type="text" id="address-input" required>
+                    <label for="">Địa chỉ</label>
+                </div>
+                <button type="submit" class="btn-thongtin" onclick="luuthongtin()"> Lưu thông tin</button>
+            </form>
+        </div>
+
+        <div class="form-donhiptim donhiptim">
+            <h2>Đo nhịp tim</h2>
+            <p>Hãy đặt cảm biến lên vị trí cần đo và đợi kết quả trong giây lát!</p>
+            <div class="donhiptim-content">
+                <table>
+                    <tr>
+                        <th>Họ Tên</th>
+                        <th>Tuổi</th>
+                        <th>Giới tính</th>
+                        <th>Quê quán</th>
+                        <th>Nhịp tim</th>
+                    </tr>
+                    <tr>
+                        <td id="name-output" class="td-form"></td>
+                        <td id="age-output" class="td-form"></td>
+                        <td id="gioitinh-output" class="td-form"></td>
+                        <td id="address-output" class="td-form"></td>
+                        <td id="sensor_value-output" class="td-form" style="color: red; font-weight: bolder;"></td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="button-donhiptim">
+                <button class="btn-form quaylai" onclick="quayveluuthongtin()">Quay lại</button>
+                <button class="btn-form xemketqua" onclick="xemketqua()">Xem kết quả</button>
+            </div>
+        </div>
+
+        <div class="form-ketqua ketqua">
+            <h2 style="margin-bottom: 10px;">Kết quả</h2>
+            <div class="ketqua-content">
+                <h3 id="name-output1" ></h3>
+                <h3 id="age-output1" ></h3>
+                <h3 id="gioitinh-output1" ></h3>
+                <h3 id="address-output1" ></h3>
+                <h3 id="sensor_value-output1" ></h3>
+                <h3 id="loikhuyen"></h3>
+            </div>
+            <div class="btn-ketqua">
+                <button class="btn-quaylai" onclick="quayvedonhiptim()">Quay lại</button>
+                <button class="btn-reset" onclick="reset()">Hoàn thành</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

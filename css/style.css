@@ -1,0 +1,321 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(/Hoc_tap/HKI_2_NAM2022_2023/Dien_tu_y_sinh/websever/img/backgroud.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    background: rgb(74, 70, 173);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.navbar a{
+    position: relative;
+    font-size: 1.1em;
+    color: rgb(235, 221, 221);
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navbar a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: rgb(243, 223, 223);
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: transform .5s ease;
+}
+
+.navbar a:hover::after{
+    transform: scaleX(1);
+}
+
+.navbar p{
+    position: relative;
+    font-size: 1.8em;
+    color: rgb(235, 221, 221);
+    text-decoration: none;
+    font-weight: 500;
+    /* margin-left: 40px; */
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background: transparent;
+    border: 2px solid #888;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: .2s ease;
+}
+
+.wrapper.active{
+    width: 900px;
+    height: 600px;
+}
+
+.wrapper .form-ketqua,
+.wrapper .form-donhiptim,
+.wrapper .form-thongtin{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-thongtin.thongtin{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-thongtin.thongtin{
+    transition: none;
+    transform: translateX(-1000px);
+}
+
+.wrapper .form-donhiptim.donhiptim{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-donhiptim.donhiptim{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.form-ketqua h2,
+.form-donhiptim h2,
+.form-thongtin h2{
+    font-size: 2em;
+    color: rgb(74, 70, 173);
+    text-align: center;
+}
+
+.input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid  rgb(74, 70, 173);
+    margin: 30px 0;
+}
+
+.input-box.age{
+    border: none;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color:  rgb(74, 70, 173);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    color:  rgb(16, 16, 18);
+    font-weight: 500;
+    padding: 0 35px 0 5px;
+}
+
+.input-box select{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-size: 1em;
+    font-weight: 500;
+    color: rgb(74, 70, 173);
+    border: 2px solid rgb(74, 70, 173);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-box select:hover{
+    color: black;
+}
+
+.wrapper .form-thongtin .btn-thongtin{
+    width: 100%;
+    height: 40px;
+    font-size: 1em;
+    font-weight: 500px;
+    border: 1px solid  rgb(74, 70, 173);
+    border-radius: 8px;
+    cursor: pointer;
+    color: rgb(74, 70, 173);
+    background: #fff;
+    transition: .5s;
+}
+
+.wrapper .form-ketqua .btn-ketqua .btn-quaylai:hover,
+.wrapper .form-ketqua .btn-ketqua .btn-reset:hover,
+.wrapper .form-donhiptim .button-donhiptim .btn-form:hover,
+.wrapper .form-thongtin .btn-thongtin:hover{
+    color: #fff;
+    background: rgb(74, 70, 173);
+}
+
+.wrapper .form-donhiptim.donhiptim{
+    transition: transform .18s ease;
+    transform: translateX(1);
+}
+
+.wrapper .form-donhiptim.active.donhiptim{
+    /* --------ẩn giao diện đo nhịp tim ------- */
+    transition: none;
+    transform: translateX(-1000px);
+}
+
+.wrapper .form-ketqua.ketqua{
+    position: absolute;
+    transition: none;
+    transform: translateX(1000px);
+}
+
+.wrapper .form-ketqua.active.ketqua{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .form-donhiptim .donhiptim-content{
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /*-------hthi ket qua do duoc--------- */
+    /* display: none; */
+}
+
+.wrapper .form-donhiptim .donhiptim-content table{
+    width: 100%;
+    margin-top: 25px;
+    color:rgb(74, 70, 173);
+}
+
+.wrapper .form-donhiptim .donhiptim-content table td{
+    color: black;
+}
+
+.wrapper .form-donhiptim .donhiptim-content table th{
+    font-weight: bolder;
+}
+
+.wrapper .form-donhiptim .donhiptim-content table,th,td{
+    padding: 5px 0;
+    border: 1px solid rgb(74, 70, 173);
+    border-collapse: collapse;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+
+.wrapper .form-donhiptim p{
+    height: 100px;
+    padding: 30px 0;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /*-------vui lòng đợi trong giây lát---------*/
+    /* display: none;  */
+}
+
+
+.wrapper .form-ketqua .btn-ketqua,
+.wrapper .form-donhiptim .button-donhiptim{
+    padding: 20px 30px 0 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrapper .form-donhiptim .button-donhiptim .btn-form{
+    height: 50px;
+    width: 100px;
+    font-size: 1em;
+    font-weight: 500;
+    color: rgb(74, 70, 173);
+    background: #fff;
+    border: 1px solid rgb(74, 70, 173);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.wrapper .form-ketqua .ketqua-content h3{
+    padding: 10px 0;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+
+.wrapper .form-ketqua .ketqua-content #loikhuyen{
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.wrapper .form-ketqua .btn-ketqua .btn-quaylai,
+.wrapper .form-ketqua .btn-ketqua .btn-reset{
+    height: 50px;
+    width: 100px;
+    font-size: 1em;
+    font-weight: 500;
+    color: rgb(74, 70, 173);
+    background: #fff;
+    border: 1px solid rgb(74, 70, 173);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .5s;
+}
