@@ -10,7 +10,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url(/Hoc_tap/HKI_2_NAM2022_2023/Dien_tu_y_sinh/websever/img/backgroud.jpeg);
+    background-image: url(../img/backgroud.jpeg);
     background-size: cover;
     background-position: center;
 }
